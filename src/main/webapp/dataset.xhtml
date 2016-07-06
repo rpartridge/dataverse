@@ -506,6 +506,12 @@
                         <p:tabView id="tabView" widgetVar="content" activeIndex="#{DatasetPage.selectedTabIndex}"
                                    rendered="#{empty DatasetPage.editMode or (DatasetPage.editMode == 'METADATA' or DatasetPage.editMode == 'LICENSE')}">
                             <p:ajax event="tabChange" listener="#{DatasetPage.tabChanged}" oncomplete="bind_bsui_components();" update="@this" />
+                            <p:tab id="visualizationTab" title="Visualization" rendered="#{true}"> 
+                            	<iframe src ="visualizationFragment.xhtml" id="info" class="iframe" name="info" height="500" width="1100" style="border:none"></iframe>
+                            	<!-- 
+                                <ui:include src="visualizationFragment.xhtml"/>
+                                 -->
+                            </p:tab>
                             <p:tab id="dataFilesTab" title="#{bundle.files}" rendered="#{!DatasetPage.workingVersion.deaccessioned and
                                                               (empty DatasetPage.editMode)}">
                                 <ui:include src="filesFragment.xhtml"/>
@@ -549,7 +555,7 @@
                                 </ui:include>
                             </p:tab>
                             <!-- 4.2.1: see above -->
-                            <p:tab id="versionsTab" title="#{bundle['file.dataFilesTab.versions']}" rendered="#{empty DatasetPage.editMode}">
+                            <p:tab id="versionsTab" title="#{bundle['file.dataFilesTab.versions']}" rendered="#{!widgetWrapper.widgetView and empty DatasetPage.editMode}">
                                 <ui:include src="dataset-versions.xhtml"></ui:include>
                             </p:tab>
                         </p:tabView>
