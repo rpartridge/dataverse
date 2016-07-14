@@ -89,7 +89,6 @@
 			      <div id="gl"></div>
 			      <div id="inspector">        
 			        
-			         
 			        <h2>Choose Style:</h2>
 			        <ul>
 			          <li id="preset">Preset</li>
@@ -126,10 +125,11 @@
  			var pdbid = "5DDK";
  		}
 		
-		// usually use this, but would need to change DD in url
+		// usually just use this
  		//var pdbid = window.frameElement.getAttribute('data-pdb');
 		
-		var url = 'pdb/DD/' + pdbid + '.pdb.gz';
+		var folder = pdbid.charAt(1).concat(pdbid.charAt(2));
+		var url = 'pdb/' + folder + '/' + pdbid + '.pdb.gz';
   		
   		function loadCompressed(url) {
   		    var req = new XMLHttpRequest();
@@ -166,8 +166,7 @@
 		    textFile = window.URL.createObjectURL(data);
 		    return textFile;
 		  };
-		var loadpdb = makeTextFile(getString);
- 		
+		var loadpdb = makeTextFile(getString);	
 		
         var element = document.getElementById('gl');
         var viewer = pv.Viewer(element, 
