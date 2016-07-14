@@ -112,75 +112,129 @@
 </div>
 		
 		
-		<script type="text/javascript" src="#{resource['js/pv/bio-pv.min.js']}?version=#{systemConfig.getVersion()}"></script>
-  		<script type="text/javascript" src="#{resource['js/pv/formset.js']}?version=#{systemConfig.getVersion()}"></script>
-    
-  		 
-		  <script type="text/javascript">
-		    var element = document.getElementById('gl');
-		  	var viewer = pv.Viewer(element, 
-		                       { quality : 'high', width: 'auto', height : 'auto',
-		                         antialias : true, outline : true});
+	<script type="text/javascript" src="#{resource['js/pv/bio-pv.min.js']}?version=#{systemConfig.getVersion()}"></script>
+  	<script type="text/javascript" src="#{resource['js/pv/formset.js']}?version=#{systemConfig.getVersion()}"></script>
+  	<script type="text/javascript" src="#{resource['js/pv/gunzip.min.js']}?version=#{systemConfig.getVersion()}"></script>
+		  
 		
-		    function load(pdbId) {
-		      document.getElementById('status').innerHTML ='loading 5DDK';
-		      pv.io.fetchPdb('pdb/5DDK.pdb', function(structure) {
-		        window.structure = structure;
-		        preset();
-		        viewer.centerOn(structure);
-		      });
-		      document.getElementById('status').innerHTML = '';
-		    }
+	<script type="text/javascript">
+		// added if/else for local testing so there is always a PDB available
+ 		if(document.getElementById('data-pdb') != null) {
+			var pdbid = window.frameElement.getAttribute('data-pdb');
+		} 
+ 		else {
+ 			var pdbid = "5DDK";
+ 		}
 		
-		    function loadProtein() {
-		      load('5DDK');
-		    }
-		    function lines() {
-		      viewer.clear();
-		      viewer.lines('structure', structure);
-		    }
-		    function cartoon() {
-		      viewer.clear();
-		      viewer.cartoon('structure', structure, { color: color.ssSuccession() });
-		    }
-		    function lineTrace() {
-		      viewer.clear();
-		      viewer.lineTrace('structure', structure);
-		    }
-		    function sline() {
-		      console.log("IN SLINE");
-		      viewer.clear();
-		      viewer.sline('structure', structure);
-		    }
-		    function tube() {
-		      viewer.clear();
-		      viewer.tube('structure', structure);
-		    }
-		    function trace() {
-		      viewer.clear();
-		      viewer.trace('structure', structure);
-		    }
-		    function preset() {
-		      viewer.clear();
-		      var ligand = structure.select({rnames : ['RVP', 'SAH']});
-		      viewer.ballsAndSticks('ligand', ligand);
-		      viewer.cartoon('protein', structure);
-		      // adapt zoom level to contain the whole structure
-		      viewer.autoZoom();
-		    }
+		// usually use this, but would need to change DD in url
+ 		//var pdbid = window.frameElement.getAttribute('data-pdb');
 		
-		    document.getElementById('cartoon').onclick = cartoon;
-		    document.getElementById('line-trace').onclick = lineTrace;
-		    document.getElementById('preset').onclick = preset;
-		    document.getElementById('lines').onclick = lines;
-		    document.getElementById('trace').onclick = trace;
-		    document.getElementById('sline').onclick = sline;
-		    document.getElementById('tube').onclick = tube;
-/* 		    window.onresize = function(event) {
-		      pv.fitParent();
-		    } */
-		    document.addEventListener('DOMContentLoaded', loadProtein);
-		  </script>
+		var url = 'pdb/DD/' + pdbid + '.pdb.gz';
+  		
+  		function loadCompressed(url) {
+  		    var req = new XMLHttpRequest();
+  		    req.open('GET', url, false);
+  		    req.overrideMimeType('text\/plain; charset=x-user-defined');    
+  		    req.send(null);
+
+  		    if (req.status != 200) {
+  		        return '';
+  		    }
+  		    var rawfile = req.responseText;
+  		    var bytes = [];
+
+  		    for (var fileidx = 0; fileidx &lt; rawfile.length; fileidx++) {
+  		        var abyte = rawfile.charCodeAt(fileidx) &amp; 0xff;
+  		        bytes.push(abyte);
+  		    }
+  			var gunzip = new Zlib.Gunzip(bytes); 
+  			var plain = gunzip.decompress();
+	   		var asciistring = "";
+  	    	for (var i = 0; i &lt; plain.length; i++) {         
+  	        	asciistring += String.fromCharCode(plain[i]);
+  	    	}
+  	    	return asciistring;
+  		}		
+		var getString = loadCompressed(url);
+
+		
+		makeTextFile = function (text) {
+			var textFile = null;
+			var data = new Blob([text], {type: 'text/plain'});
+		    if (textFile !== null) {
+		      window.URL.revokeObjectURL(textFile);
+		    }
+		    textFile = window.URL.createObjectURL(data);
+		    return textFile;
+		  };
+		var loadpdb = makeTextFile(getString);
+ 		
+		
+         var element = document.getElementById('gl');
+         var viewer = pv.Viewer(element, 
+                             { quality : 'high', width: 'auto', height : 'auto',
+                               antialias : true, outline : true});
+      
+          function load(pdbid) {
+            document.getElementById('status').innerHTML ='loading ' + pdbid;
+            pv.io.fetchPdb(loadpdb, function(structure) {
+              window.structure = structure;
+              preset();
+              viewer.centerOn(structure);
+            });
+            document.getElementById('status').innerHTML = '';
+          }
+      
+          function loadProtein() {
+            load(pdbid);
+          }
+          function lines() {
+            viewer.clear();
+            viewer.lines('structure', structure);
+          }
+          function cartoon() {
+            viewer.clear();
+            viewer.cartoon('structure', structure, { color: color.ssSuccession() });
+          }
+          function lineTrace() {
+            viewer.clear();
+            viewer.lineTrace('structure', structure);
+          }
+          function sline() {
+            console.log("IN SLINE");
+            viewer.clear();
+            viewer.sline('structure', structure);
+          }
+          function tube() {
+            viewer.clear();
+            viewer.tube('structure', structure);
+          }
+          function trace() {
+            viewer.clear();
+            viewer.trace('structure', structure);
+          }
+          function preset() {
+            viewer.clear();
+            var ligand = structure.select({rnames : ['RVP', 'SAH']});
+            viewer.ballsAndSticks('ligand', ligand);
+            viewer.cartoon('protein', structure);
+            // adapt zoom level to contain the whole structure
+            viewer.autoZoom();
+          }
+      
+          document.getElementById('cartoon').onclick = cartoon;
+          document.getElementById('line-trace').onclick = lineTrace;
+          document.getElementById('preset').onclick = preset;
+          document.getElementById('lines').onclick = lines;
+          document.getElementById('trace').onclick = trace;
+          document.getElementById('sline').onclick = sline;
+          document.getElementById('tube').onclick = tube;
+/*            window.onresize = function(event) {
+            pv.fitParent();
+          } */
+          document.addEventListener('DOMContentLoaded', loadProtein);
+     </script>
+         
 
 
 </ui:composition>
