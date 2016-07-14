@@ -81,7 +81,7 @@
 
     <br></br>
  
-    	<div class="panel-group">
+    <div class="panel-group">
     	<div class="panel panel-default">
 			<div class="container">
 			  <div class="row">
@@ -108,8 +108,8 @@
 			  </div>
 			</div>	
  
-</div>
-</div>
+		</div>
+	</div>
 		
 		
 	<script type="text/javascript" src="#{resource['js/pv/bio-pv.min.js']}?version=#{systemConfig.getVersion()}"></script>
@@ -156,8 +156,7 @@
   	    	return asciistring;
   		}		
 		var getString = loadCompressed(url);
-
-		
+	
 		makeTextFile = function (text) {
 			var textFile = null;
 			var data = new Blob([text], {type: 'text/plain'});
@@ -170,12 +169,12 @@
 		var loadpdb = makeTextFile(getString);
  		
 		
-         var element = document.getElementById('gl');
-         var viewer = pv.Viewer(element, 
-                             { quality : 'high', width: 'auto', height : 'auto',
-                               antialias : true, outline : true});
+        var element = document.getElementById('gl');
+        var viewer = pv.Viewer(element, 
+                            { quality : 'high', width: 'auto', height : 'auto',
+                              antialias : true, outline : true});
       
-          function load(pdbid) {
+        function load(pdbid) {
             document.getElementById('status').innerHTML ='loading ' + pdbid;
             pv.io.fetchPdb(loadpdb, function(structure) {
               window.structure = structure;
@@ -183,56 +182,55 @@
               viewer.centerOn(structure);
             });
             document.getElementById('status').innerHTML = '';
-          }
+        }
       
-          function loadProtein() {
+        function loadProtein() {
             load(pdbid);
-          }
-          function lines() {
+        }
+        function lines() {
             viewer.clear();
             viewer.lines('structure', structure);
-          }
-          function cartoon() {
+        }
+        function cartoon() {
             viewer.clear();
             viewer.cartoon('structure', structure, { color: color.ssSuccession() });
-          }
-          function lineTrace() {
+        }
+        function lineTrace() {
             viewer.clear();
             viewer.lineTrace('structure', structure);
-          }
-          function sline() {
+        }
+        function sline() {
             console.log("IN SLINE");
             viewer.clear();
             viewer.sline('structure', structure);
-          }
-          function tube() {
+        }
+        function tube() {
             viewer.clear();
             viewer.tube('structure', structure);
-          }
-          function trace() {
+        }
+        function trace() {
             viewer.clear();
             viewer.trace('structure', structure);
-          }
-          function preset() {
+        }
+        function preset() {
             viewer.clear();
             var ligand = structure.select({rnames : ['RVP', 'SAH']});
             viewer.ballsAndSticks('ligand', ligand);
             viewer.cartoon('protein', structure);
-            // adapt zoom level to contain the whole structure
             viewer.autoZoom();
-          }
+        }
       
-          document.getElementById('cartoon').onclick = cartoon;
-          document.getElementById('line-trace').onclick = lineTrace;
-          document.getElementById('preset').onclick = preset;
-          document.getElementById('lines').onclick = lines;
-          document.getElementById('trace').onclick = trace;
-          document.getElementById('sline').onclick = sline;
-          document.getElementById('tube').onclick = tube;
+        document.getElementById('cartoon').onclick = cartoon;
+        document.getElementById('line-trace').onclick = lineTrace;
+        document.getElementById('preset').onclick = preset;
+        document.getElementById('lines').onclick = lines;
+        document.getElementById('trace').onclick = trace;
+        document.getElementById('sline').onclick = sline;
+        document.getElementById('tube').onclick = tube;
 /*            window.onresize = function(event) {
             pv.fitParent();
           } */
-          document.addEventListener('DOMContentLoaded', loadProtein);
+        document.addEventListener('DOMContentLoaded', loadProtein);
      </script>
          
 
