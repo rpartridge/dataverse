@@ -509,11 +509,10 @@
                            
                              
                             <p:tab id="visualizationTab" title="Visualization" rendered="#{true}"> 
-								 
-                            	<script src="#{resource['js/pv/widget_script.js']}?version=#{systemConfig.getVersion()}" type="text/javascript"></script>
-                            	<div id="widget-container" style="height: 500px; width: 1100px; border:none"></div>
-                              <!--  
-                            	<iframe src ="visualizationFragment.xhtml" id="info" class="iframe" name="info" height="500" width="1100" 
+                            	<script id="pv-widget" src="#{resource['js/pv/widget_script.js']}?version=#{systemConfig.getVersion()}" type="text/javascript"></script>
+
+                                <!-- 
+                            	<iframe src ="NGLvis.xhtml" id="info" class="iframe" name="info" height="500" width="1100" 
                             	style="border:none" data-pdb="#{DatasetPage.datasetVersionUI.datasetVersion.getDatasetField(datasetFieldServiceBean.findByName('refinedStructurePDBCode')).value}">
                             	</iframe> 
                             	 -->
