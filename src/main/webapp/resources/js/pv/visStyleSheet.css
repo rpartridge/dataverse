@@ -1,5 +1,10 @@
 			.visualize {
 				position: absolute;
+  z-index: 15;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -150px;
+  background: red;
 			} 
 										
 			#gl {
