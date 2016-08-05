@@ -1,0 +1,152 @@
+.top-area-dataset {
+	background-color: #E8E8E8; 
+	color: #333;
+	padding: 40px 15px; 
+}
+
+#dataset {
+	background-color: #E8E8E8;
+
+}
+
+#red-button3{
+	font-size: 14px;
+	background: #9e1d2a;
+	color: white;
+	padding: 5px;
+	border-radius: 2px;
+	width:100%;
+}
+
+.ds-page p{
+	font-size: 20px;
+	margin: 0px;
+}
+
+.ds-page h3{
+	margin: 0px 0px 10px;
+}
+
+.ds-page-row{
+	margin: 0px;
+}
+
+.reproc {
+	float: right;
+	font-size: 22px;
+}
+
+.reproc:before{
+	content: "\f080";
+	font-family: FontAwesome;
+}
+
+.r-success {
+	color: #2db82d;
+}
+
+.r-complete-all-success {
+	color: #2db82d;
+}
+
+.r-no-results {
+	color: #808080;
+}
+
+.r-all-failed {
+	color: #cc0000;
+}
+
+.r-complete-all-failed {
+	color: #cc0000;
+}
+
+.progress {
+	height: 7px;
+	margin: 0px;
+}
+
+.progress-bar-success {
+	background-color: #2db82d;
+}
+
+.progress-bar-danger {
+	background-color: #cc0000;
+}
+
+.progress-bar-warning {
+	background-color: #808080;
+}
+
+.r-mixed-red-green {
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(.4, green), color-stop(.7, red));
+    background-image: gradient(linear, left top, right top, color-stop(0.4, green), color-stop(.7, red));
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.r-mixed-green-grey {
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(.4, green), color-stop(.7, #808080));
+    background-image: gradient(linear, left top, right top, color-stop(0.4, green), color-stop(.7, #808080));
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.r-mixed-red-grey {
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(.4, red), color-stop(.7, #808080));
+    background-image: gradient(linear, left top, right top, color-stop(0.4, red), color-stop(.7, #808080));
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.r-mixed-red-green-grey {
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(.5, green), color-stop(.1, red), color-stop(.8, #808080));
+    background-image: gradient(linear, left top, right top, color-stop(0.5, green), color-stop(.1, red), color-stop(.8, #808080));
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.reproc-section-text{
+	font-size: 16px;
+	padding-top: 10px;
+	padding-left: 45px;
+}
+
+.global-link {
+    font-size: 14px;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 768px) { 
+
+	.top-area-dataset {
+		background-color: #E8E8E8; 
+		color: #333;
+		margin:30px 0px 10px;
+	}
+
+	.dataset-thumbnail {
+		margin-top: 5px;
+	}
+
+	.ds-page-row {
+		padding: 0px 0px;
+	}
+
+	#red-button3{
+	font-size: 12px;
+	}
+
+	.ds-page p{
+		font-size: 18px;
+	}
+
+	#ds-info{
+		padding: 20px 0px 0px 0px;
+	}
+
+}

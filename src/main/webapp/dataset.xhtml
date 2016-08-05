@@ -507,12 +507,53 @@
                                    rendered="#{empty DatasetPage.editMode or (DatasetPage.editMode == 'METADATA' or DatasetPage.editMode == 'LICENSE')}">
                             <p:ajax event="tabChange" listener="#{DatasetPage.tabChanged}" oncomplete="bind_bsui_components();" update="@this" />
                            
-                             
+                              
                             <p:tab id="visualizationTab" title="Visualization" 
-                            rendered="#{!empty DatasetPage.datasetVersionUI.datasetVersion.getDatasetField(datasetFieldServiceBean.findByName('refinedStructurePDBCode'))}"> 
-  
-                            	<script id="ngl-widget" src="#{resource['js/pv/NGL_widget_2.js']}?version=#{systemConfig.getVersion()}" type="text/javascript"
-                            	data-pdb="#{DatasetPage.datasetVersionUI.datasetVersion.getDatasetField(datasetFieldServiceBean.findByName('refinedStructurePDBCode')).value}"></script>
+                            rendered="#{!empty DatasetPage.datasetVersionUI.datasetVersion.getDatasetField(datasetFieldServiceBean.findByName('refinedStructurePDBCode'))}">
+ 
+ 							 <!-- 
+  							<p:tab id="visualizationTab" title="Visualization" rendered="#{datasetFieldServiceBean.visTabRender('refinedStructurePDBCode')}">
+								-->
+								<div class="container">
+								    <div class="row">
+								        <div class="col-sm-6">								
+								            <div class="panel panel-default" id="togglePanel">
+								                <div class="btn-group btn-group btn-toggle pull-left">
+								                    <button class="btn btn-default" data-toggle="tab" data-target="#structure">Structure View 1</button>
+								                    <button class="btn btn-default" data-toggle="tab" data-target="#struct2">Structure View 2</button>
+								                    <button class="btn btn-default" data-toggle="tab" data-target="#reprocData">Reprocessing Data</button>
+								                </div>
+								                <div class="panel-body tab-content">
+								                	
+								                    <div class="tab-pane active" id="structure" style="height:500px; width:1100px">
+								                    
+								                        <script id="ngl-widget" src="#{resource['js/pv/NGL_widget_2.js']}?version=#{systemConfig.getVersion()}" type="text/javascript"
+								                            	data-pdb="#{DatasetPage.datasetVersionUI.datasetVersion.getDatasetField(datasetFieldServiceBean.findByName('refinedStructurePDBCode')).value}"></script>
+								                    </div>
+								                    
+								                    <div class="tab-pane" id="struct2" style="height:500px; width:1100px">
+								                     <!-- 
+								                    	<script id="pv-widget" src="#{resource['js/pv/widget_script.js']}?version=#{systemConfig.getVersion()}" type="text/javascript"
+								                            	data-pdb="#{DatasetPage.datasetVersionUI.datasetVersion.getDatasetField(datasetFieldServiceBean.findByName('refinedStructurePDBCode')).value}"></script>
+								                     -->	
+								                        <object data="visualizationFragment.xhtml" height="500" width="1100"></object>	
+								                       			
+								                 	</div>
+								                    
+								                    <div class="tab-pane" id="reprocData" style="height:500px; width:1100px">
+								                    <br></br>
+								                        <ui:fragment id="reprocessdata" rendered="#{true}">
+								                         	<ui:include src="ReprocData.xhtml"></ui:include>
+								                         </ui:fragment>
+								                    </div>
+								                    
+								                </div>
+								            </div>
+								            
+								        </div>
+								    </div>
+								</div>
+                            	
      			
 							  
                              <!--  

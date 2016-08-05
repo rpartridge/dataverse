@@ -12,13 +12,36 @@
     css_font_awesome.setAttribute("rel","stylesheet");
     css_font_awesome.setAttribute("href","https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
     (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(css_font_awesome);
+    
+    var css_style = document.createElement('link');
+    css_font_awesome.setAttribute("type","text/css");
+    css_font_awesome.setAttribute("rel","stylesheet");
+    css_font_awesome.setAttribute("href","https://rawgit.com/rpartridge/dataverse/develop/src/main/webapp/resources/js/pv/visStyleSheet.css");
+    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(css_style);
 
     // insert widget div after this script
     var widget_div = document.createElement('div');
     widget_div.setAttribute("id","viewer");
     widget_div.setAttribute("scoped","scoped");
-    var current_script = document.getElementById("pv-widget");
+    widget_div.setAttribute("style","width:800px; height:500px; margin:0 auto;");
+    var current_script = document.getElementById("pv-widget2");
     current_script.parentNode.insertBefore(widget_div, current_script.nextSibling);
+    
+    var list = document.createElement('div');
+    list.setAttribute("class","col-md-10 visualize");
+    list.innerHTML = '<div id="gl"></div> \
+    	<div id="inspector"> \
+    	<h2>Choose Style:</h2>	<ul>\
+          <li id="preset">Preset</li>\
+          <li id="cartoon">Cartoon</li>\
+          <li id="tube">Tube</li>\
+          <li id="lines">Lines</li>\
+          <li id="line-trace">Line Trace</li>\
+          <li id="sline">Smooth Line Trace</li>\
+          <li id="trace">Trace</li>\
+        </ul>\
+    	</div>';
+    current_script.parentNode.insertBefore(list, current_script.nextSibling);
 
     var proteinViewer;
     if (window.proteinViewer === undefined) {
@@ -67,6 +90,25 @@
         }
         current_script.parentNode.insertBefore(script_zlib, current_script.nextSibling);
     }
+    
+//    function loadViewerScript() {
+//        var script_viewer = document.createElement('script');
+//        script_viewer.setAttribute("type","text/javascript");
+//        script_viewer.setAttribute("src",
+//            "https://rawgit.com/rpartridge/dataverse/develop/src/main/webapp/resources/js/pv/load.js");
+//        if (script_viewer.readyState) {
+//        	script_viewer.onreadystatechange = function () { // For old versions of IE
+//                if (this.readyState == 'complete' || this.readyState == 'loaded') {
+//                	console.log("main called in if");
+//                    main();
+//                }
+//            };
+//        } else {
+//        	console.log("main called in else");
+//        	script_viewer.onload = main;
+//        }
+//        current_script.parentNode.insertBefore(script_viewer, current_script.nextSibling);
+//    }
 
     function preset() {
         proteinViewer.clear();
@@ -87,23 +129,56 @@
             proteinViewer.centerOn(structure);
         });
     }
-
+    function lines() {
+    	proteinViewer.clear();
+    	proteinViewer.lines('structure', structure);
+    }
+    function cartoon() {
+    	proteinViewer.clear();
+    	proteinViewer.cartoon('structure', structure, { color: color.ssSuccession() });
+    }
+    function lineTrace() {
+    	proteinViewer.clear();
+    	proteinViewer.lineTrace('structure', structure);
+    }
+    function sline() {
+        proteinViewer.clear();
+        proteinViewer.sline('structure', structure);
+    }
+    function tube() {
+    	proteinViewer.clear();
+    	proteinViewer.tube('structure', structure);
+    }
+    function trace() {
+    	proteinViewer.clear();
+    	proteinViewer.trace('structure', structure);
+    }
+    
+    
     function main() {
+        console.log("main is running");
         var options = {
-            width: 1100,
-            height: 500,
-            antialias: true,
-            quality : 'medium'
+                width: 600,
+                height: 500,
+                antialias: true,
+                quality : 'medium'
         };
         proteinViewer = pv.Viewer(document.getElementById('viewer'), options);
-        
+            
         if(document.getElementById('data-pdb') != null) {
-			var pdb = window.frameElement.getAttribute('data-pdb');
-		} 
- 		else {
- 			var pdb = "5DDK";
- 		}
+    		var pdb = window.frameElement.getAttribute('data-pdb');
+    	} 
+     	else {
+     		var pdb = "5DDK";
+     	}
         load(pdb);
+        document.getElementById('cartoon').onclick = cartoon;
+        document.getElementById('line-trace').onclick = lineTrace;
+        document.getElementById('preset').onclick = preset;
+        document.getElementById('lines').onclick = lines;
+        document.getElementById('trace').onclick = trace;
+        document.getElementById('sline').onclick = sline;
+        document.getElementById('tube').onclick = tube; 
     }
 
 })();

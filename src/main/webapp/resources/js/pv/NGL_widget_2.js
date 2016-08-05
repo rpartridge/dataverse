@@ -1,5 +1,6 @@
 /**
  * 
+ * Insert widget script to display visualization tab
  */
 (function() {
 	// insert widget div after this script
@@ -15,6 +16,7 @@
         loadNGL();
     }
     
+    // load necessary JavaScript from NGL github
 	function loadNGL() {
         var script_ngl = document.createElement('script');
         script_ngl.setAttribute("type","text/javascript");
@@ -31,18 +33,24 @@
         }
         current_script.parentNode.insertBefore(script_ngl, current_script.nextSibling); 
     }
+	
 	function main() {
-
-		var pdb = window.frameElement.getAttribute('data-pdb');
- 		
+		
+		if(document.getElementById('data-pdb') != null) {
+			var pdb = window.frameElement.getAttribute('data-pdb');
+		} 
+ 		else {
+ 			var pdb = "5ddk";
+ 		}
 		pdb = pdb.toLowerCase();
         var folder = pdb.charAt(1).concat(pdb.charAt(2));
         var url = 'pdb/' + folder + '/pdb' + pdb + '.ent.gz';
 		//url = "rcsb://" + pdb;
 		
+        
+        // load NGL viewer with specified URL
 		stage = new NGL.Stage( "viewport", { backgroundColor: "white" } );
         stage.loadFile( url, { defaultRepresentation: true } );
 		
-
 	}
 })();

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title> Reprocessing Data </title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"></link>
+    <link href="#{resource['js/pv/bootstrap.css']}?version=#{systemConfig.getVersion()}" rel="stylesheet"></link>
+    <link href="#{resource['js/pv/annotations.css']}?version=#{systemConfig.getVersion()}" rel="stylesheet"></link>
+    <link href="#{resource['js/pv/dataset_page.css']}?version=#{systemConfig.getVersion()}" rel="stylesheet"/>
+    <link href="#{resource['js/pv/databank.css']}?version=#{systemConfig.getVersion()}" rel="stylesheet"></link>    
+    
+
+<meta name="DC.identifier" content="DOI:10.15785/SBGRID/320" />
+<meta name="DC.title" content="X-Ray Diffraction data from Crystal structure of a LonA fragment containing the 3-helix bundle and the AAA-alpha/beta domain, source of 4YPN structure"/>
+<meta name="DC.publisher" content="Structural Biology Data Grid"/>
+<meta name="DC.type" content="Dataset" /> 
+
+<meta name="DC.date" content="May 31, 2016"/>
+
+<meta name="DC.creator" content="Su, Ming-Yuan"/>
+
+<meta name="DC.creator" content="Lin, Chien-Chu"/>
+
+<meta name="DC.creator" content="Chang, Chung-I"/>
+</head>
+<body>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1 spacing">
+    <div class="dataset-section">
+      <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
+      <h3>Reprocessing Data</h3>
+      
+      <span class="reproc r-complete-all-success"></span>
+    </div>
+
+    <div class="progress">
+      <div class="progress-bar progress-bar-success progress-bar-striped" style="width: 100.0%">
+      </div>
+      <div class="progress-bar progress-bar-danger progress-bar-striped" style="width: 0.0%">
+      </div>
+      <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 0.0%">
+      </div>
+    </div>
+      <p class='col-md-10 col-md-offset-10 spacing text-left' ><a href="https://data.sbgrid.org/annotations/xray_pipeline">About Reprocessing</a></p>
+
+    <p class="reproc-section-text"></p>
+      
+      
+
+
+
+
+
+
+<div class="row">
+
+    <div class="col-md-3 col-xs-3">
+      <a data-toggle="collapse" href="#2297">
+        <div class="well well2 well-success">
+        <p class="reproc-status">xia2 -2d</p><span class="fa reproc-success"></span>
+        </div>
+      </a>
+    </div>
+  
+    <div class="col-md-3 col-xs-3">
+      <a data-toggle="collapse" href="#2298">
+        <div class="well well2 well-success">
+        <p class="reproc-status">xia2 -3d</p><span class="fa reproc-success"></span>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-3 col-xs-3">
+      <a data-toggle="collapse" href="#2296">
+        <div class="well well2 well-success">
+        <p class="reproc-status">xia2 -3dii</p><span class="fa reproc-success"></span>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-3 col-xs-3">
+      <a data-toggle="collapse" href="#2295">
+        <div class="well well2 well-success">
+        <p class="reproc-status">xia2 -dials</p><span class="fa reproc-success"></span>
+        </div>
+      </a>
+    </div> 
+
+
+</div>
+
+
+
+
+<div class="command row">
+    <a data-toggle="collapse" href="#2297">
+        <i class="col-xs-1 fa fa-terminal terminal"></i><span class="cspan col-xs-10">xia2 -2d /programs/datagrid//320/ verbose=True multiprocessing.nproc=1 -ispyb_xml_out apc.xml</span>
+    </a> 
+</div>
+<div id="2297" class="row collapse">
+
+          <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Version:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>0.4.0.338-g7e19e23-dials-1.2</p></div>
+
+            
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Project:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>AUTOMATIC</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Crystal:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>DEFAULT</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Sequence Length:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>0</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Wavelength:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>NATIVE - 1.1</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Sweep:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>SWEEP1</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Files:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>/programs/datagrid/320/collect_Mta202_492_3_1_#####.cbf</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Images:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>1 - 180</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Beam:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>(154.28, 122.64) -> (154.28, 122.66) </p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Distance:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>149.9 -> 150.36</p></div>
+
+	      
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Spacegroup:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>P 21 21 2</p></div>
+
+              <div class="dataset-info-label for-text col-md-8 col-md-offset-1 col-sm-12"><p>For AUTOMATIC/DEFAULT/NATIVE:</p></div>
+            
+
+    
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <table class="table reproc-table">
+            <tr>
+                <th></th>
+                <th>ALL</th>
+                <th>LOW</th>
+                <th>HIGH</th>
+            </tr>
+            <tr>
+                <th>High resolution limit</th>
+                <td>1.94</td>
+                <td>5.26</td>
+                <td>1.94</td>
+            </tr>
+            <tr>
+                <th>Low resolution limit</th>
+                <td>44.97</td>
+                <td>44.98</td>
+                <td>1.97</td>
+            </tr>
+            <tr>
+                <th>Completeness</th>
+                <td>100.0</td>
+                <td>100.0</td>
+                <td>100.0</td>
+            </tr>
+            <tr>
+                <th>Multiplicity</th>
+                <td>5.8</td>
+                <td>5.8</td>
+                <td>5.8</td>
+            </tr>
+            <tr>
+                <th>I/sigma</th>
+                <td>10.3</td>
+                <td>10.3</td>
+                <td>10.3</td>
+            </tr>
+            <tr>
+                <th>Rmerge</th>
+                <td>0.113</td>
+                <td>0.113</td>
+                <td>0.113</td>
+            </tr>
+            <tr>
+                <th>CC half</th>
+                <td>0.994</td>
+                <td>0.994</td>
+                <td>0.994</td>
+            </tr>
+            <tr>
+                <th>Anomalous completeness</th>
+                <td>99.4</td>
+                <td>99.4</td>
+                <td>99.4</td>
+            </tr>
+            <tr>
+                <th>Anomalous multiplicity</th>
+                <td>3.1</td>
+                <td>3.1</td>
+                <td>3.1</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <table class="table reproc-table">
+          <tr>
+            <th>Cell</th>
+            <td>69.15</td>
+            <td>59.191</td>
+            <td>63.723</td>
+            <td>90.0</td>
+            <td>90.0</td>
+            <td>90.0</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    
+
+</div>
+
+
+<div class="command row">
+    <a data-toggle="collapse" href="#2298">
+        <i class="col-xs-1 fa fa-terminal terminal"></i><span class="cspan col-xs-10">xia2 -3d /programs/datagrid//320/ verbose=True multiprocessing.nproc=1 -ispyb_xml_out apc.xml</span>
+    </a> 
+</div>
+<div id="2298" class="row collapse">
+
+          <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Version:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>0.4.0.338-g7e19e23-dials-1.2</p></div>
+
+            
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Project:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>AUTOMATIC</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Crystal:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>DEFAULT</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Sequence Length:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>0</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Wavelength:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>NATIVE - 1.1</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Sweep:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>SWEEP1</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Files:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>/programs/datagrid/320/collect_Mta202_492_3_1_#####.cbf</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Images:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>1 - 180</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Beam:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>(154.28, 122.64) -> (154.28, 122.52) </p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Distance:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>149.9 -> 150.54</p></div>
+
+	      
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Spacegroup:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>P 21 21 2</p></div>
+
+              <div class="dataset-info-label for-text col-md-8 col-md-offset-1 col-sm-12"><p>For AUTOMATIC/DEFAULT/NATIVE:</p></div>
+            
+
+    
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <table class="table reproc-table">
+            <tr>
+                <th></th>
+                <th>ALL</th>
+                <th>LOW</th>
+                <th>HIGH</th>
+            </tr>
+            <tr>
+                <th>High resolution limit</th>
+                <td>1.96</td>
+                <td>5.32</td>
+                <td>1.96</td>
+            </tr>
+            <tr>
+                <th>Low resolution limit</th>
+                <td>36.89</td>
+                <td>36.89</td>
+                <td>1.99</td>
+            </tr>
+            <tr>
+                <th>Completeness</th>
+                <td>100.0</td>
+                <td>100.0</td>
+                <td>100.0</td>
+            </tr>
+            <tr>
+                <th>Multiplicity</th>
+                <td>6.3</td>
+                <td>6.3</td>
+                <td>6.3</td>
+            </tr>
+            <tr>
+                <th>I/sigma</th>
+                <td>13.5</td>
+                <td>13.5</td>
+                <td>13.5</td>
+            </tr>
+            <tr>
+                <th>Rmerge</th>
+                <td>0.084</td>
+                <td>0.084</td>
+                <td>0.084</td>
+            </tr>
+            <tr>
+                <th>CC half</th>
+                <td>0.998</td>
+                <td>0.998</td>
+                <td>0.998</td>
+            </tr>
+            <tr>
+                <th>Anomalous completeness</th>
+                <td>99.8</td>
+                <td>99.8</td>
+                <td>99.8</td>
+            </tr>
+            <tr>
+                <th>Anomalous multiplicity</th>
+                <td>3.4</td>
+                <td>3.4</td>
+                <td>3.4</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <table class="table reproc-table">
+          <tr>
+            <th>Cell</th>
+            <td>69.42</td>
+            <td>59.45</td>
+            <td>63.96</td>
+            <td>90.0</td>
+            <td>90.0</td>
+            <td>90.0</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    
+
+</div>
+
+
+<div class="command row">
+    <a data-toggle="collapse" href="#2296">
+        <i class="col-xs-1 fa fa-terminal terminal"></i><span class="cspan col-xs-10">xia2 -3dii /programs/datagrid//320/ verbose=True multiprocessing.nproc=1 -ispyb_xml_out apc.xml</span>
+    </a> 
+</div>
+<div id="2296" class="row collapse">
+
+          <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Version:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>0.4.0.338-g7e19e23-dials-1.2</p></div>
+
+            
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Project:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>AUTOMATIC</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Crystal:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>DEFAULT</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Sequence Length:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>0</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Wavelength:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>NATIVE - 1.1</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Sweep:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>SWEEP1</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Files:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>/programs/datagrid/320/collect_Mta202_492_3_1_#####.cbf</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Images:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>1 - 180</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Beam:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>(154.28, 122.64) -> (154.28, 122.52) </p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Distance:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>149.9 -> 150.48</p></div>
+
+	      
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Spacegroup:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>P 21 21 2</p></div>
+
+              <div class="dataset-info-label for-text col-md-8 col-md-offset-1 col-sm-12"><p>For AUTOMATIC/DEFAULT/NATIVE:</p></div>
+            
+
+    
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <table class="table reproc-table">
+            <tr>
+                <th></th>
+                <th>ALL</th>
+                <th>LOW</th>
+                <th>HIGH</th>
+            </tr>
+            <tr>
+                <th>High resolution limit</th>
+                <td>1.96</td>
+                <td>5.32</td>
+                <td>1.96</td>
+            </tr>
+            <tr>
+                <th>Low resolution limit</th>
+                <td>43.54</td>
+                <td>43.56</td>
+                <td>1.99</td>
+            </tr>
+            <tr>
+                <th>Completeness</th>
+                <td>100.0</td>
+                <td>100.0</td>
+                <td>100.0</td>
+            </tr>
+            <tr>
+                <th>Multiplicity</th>
+                <td>6.3</td>
+                <td>6.3</td>
+                <td>6.3</td>
+            </tr>
+            <tr>
+                <th>I/sigma</th>
+                <td>13.5</td>
+                <td>13.5</td>
+                <td>13.5</td>
+            </tr>
+            <tr>
+                <th>Rmerge</th>
+                <td>0.084</td>
+                <td>0.084</td>
+                <td>0.084</td>
+            </tr>
+            <tr>
+                <th>CC half</th>
+                <td>0.998</td>
+                <td>0.998</td>
+                <td>0.998</td>
+            </tr>
+            <tr>
+                <th>Anomalous completeness</th>
+                <td>99.8</td>
+                <td>99.8</td>
+                <td>99.8</td>
+            </tr>
+            <tr>
+                <th>Anomalous multiplicity</th>
+                <td>3.4</td>
+                <td>3.4</td>
+                <td>3.4</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <table class="table reproc-table">
+          <tr>
+            <th>Cell</th>
+            <td>69.42</td>
+            <td>59.45</td>
+            <td>63.96</td>
+            <td>90.0</td>
+            <td>90.0</td>
+            <td>90.0</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    
+
+</div>
+
+
+<div class="command row">
+    <a data-toggle="collapse" href="#2295">
+        <i class="col-xs-1 fa fa-terminal terminal"></i><span class="cspan col-xs-10">xia2 -dials /programs/datagrid//320/ verbose=True multiprocessing.nproc=1 -ispyb_xml_out apc.xml</span>
+    </a> 
+</div>
+<div id="2295" class="row collapse">
+
+          <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Version:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>0.4.0.338-g7e19e23-dials-1.2</p></div>
+
+            
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Project:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>AUTOMATIC</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Crystal:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>DEFAULT</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Sequence Length:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>0</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Wavelength:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>NATIVE - 1.1</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Sweep:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>SWEEP1</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Files:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>/programs/datagrid/320/collect_Mta202_492_3_1_#####.cbf</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Images:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>1 - 180</p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Beam:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>(154.28, 122.64) -> (154.28, 122.53) </p></div>
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Distance:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>149.9 -> 151.01</p></div>
+
+	      
+
+              <div class="dataset-info-label col-md-4 col-md-offset-1 col-sm-12"><p>Spacegroup:</p></div><div class="dataset-info-text col-md-7 col-sm-12"><p>P 21 21 2</p></div>
+
+              <div class="dataset-info-label for-text col-md-8 col-md-offset-1 col-sm-12"><p>For AUTOMATIC/DEFAULT/NATIVE:</p></div>
+            
+
+    
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <table class="table reproc-table">
+            <tr>
+                <th></th>
+                <th>ALL</th>
+                <th>LOW</th>
+                <th>HIGH</th>
+            </tr>
+            <tr>
+                <th>High resolution limit</th>
+                <td>1.96</td>
+                <td>5.32</td>
+                <td>1.96</td>
+            </tr>
+            <tr>
+                <th>Low resolution limit</th>
+                <td>47.09</td>
+                <td>47.1</td>
+                <td>1.99</td>
+            </tr>
+            <tr>
+                <th>Completeness</th>
+                <td>100.0</td>
+                <td>100.0</td>
+                <td>100.0</td>
+            </tr>
+            <tr>
+                <th>Multiplicity</th>
+                <td>6.2</td>
+                <td>6.2</td>
+                <td>6.2</td>
+            </tr>
+            <tr>
+                <th>I/sigma</th>
+                <td>8.1</td>
+                <td>8.1</td>
+                <td>8.1</td>
+            </tr>
+            <tr>
+                <th>Rmerge</th>
+                <td>0.112</td>
+                <td>0.112</td>
+                <td>0.112</td>
+            </tr>
+            <tr>
+                <th>CC half</th>
+                <td>0.994</td>
+                <td>0.994</td>
+                <td>0.994</td>
+            </tr>
+            <tr>
+                <th>Anomalous completeness</th>
+                <td>99.8</td>
+                <td>99.8</td>
+                <td>99.8</td>
+            </tr>
+            <tr>
+                <th>Anomalous multiplicity</th>
+                <td>3.3</td>
+                <td>3.3</td>
+                <td>3.3</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <table class="table reproc-table">
+          <tr>
+            <th>Cell</th>
+            <td>69.513</td>
+            <td>59.536</td>
+            <td>64.011</td>
+            <td>90.0</td>
+            <td>90.0</td>
+            <td>90.0</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    
+
+</div>
+
+
+
+
+      
+   
+  </div>
+</div>
+
+
+
+</body>
+</html>
