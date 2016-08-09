@@ -1,36 +1,23 @@
 (function() {
 
-    // css
-    var css_bootstrap = document.createElement('link');
-    css_bootstrap.setAttribute("type","text/css");
-    css_bootstrap.setAttribute("rel","stylesheet");
-    css_bootstrap.setAttribute("href","https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css");
-    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(css_bootstrap);
-
-    var css_font_awesome = document.createElement('link');
-    css_font_awesome.setAttribute("type","text/css");
-    css_font_awesome.setAttribute("rel","stylesheet");
-    css_font_awesome.setAttribute("href","https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
-    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(css_font_awesome);
-    
+    // css    
     var css_style = document.createElement('link');
-    css_font_awesome.setAttribute("type","text/css");
-    css_font_awesome.setAttribute("rel","stylesheet");
-    css_font_awesome.setAttribute("href","https://rawgit.com/rpartridge/dataverse/develop/src/main/webapp/resources/js/pv/visStyleSheet.css");
+    css_style.setAttribute("type","text/css");
+    css_style.setAttribute("rel","stylesheet");
+    css_style.setAttribute("href","/resources/css/vis_tab/visStyleSheet.css");
     (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(css_style);
 
     // insert widget div after this script
     var widget_div = document.createElement('div');
     widget_div.setAttribute("id","viewer");
     widget_div.setAttribute("scoped","scoped");
-    widget_div.setAttribute("style","width:800px; height:500px; margin:0 auto;");
-    var current_script = document.getElementById("pv-widget2");
+    widget_div.setAttribute("style","width:750px; height:500px; margin:0 auto;");
+    var current_script = document.getElementById("pv-widget");
     current_script.parentNode.insertBefore(widget_div, current_script.nextSibling);
     
     var list = document.createElement('div');
     list.setAttribute("class","col-md-10 visualize");
-    list.innerHTML = '<div id="gl"></div> \
-    	<div id="inspector"> \
+    list.innerHTML = '<div id="inspector"> \
     	<h2>Choose Style:</h2>	<ul>\
           <li id="preset">Preset</li>\
           <li id="cartoon">Cartoon</li>\
@@ -57,7 +44,7 @@
         var script_tag = document.createElement('script');
         script_tag.setAttribute("type","text/javascript");
         script_tag.setAttribute("src",
-            "https://dv.sbgrid.org/javax.faces.resource/js/pv/bio-pv.min.js.xhtml?version=4.4");
+            "resources/js/pv/bio-pv.min.js");
         if (script_tag.readyState) {
             script_tag.onreadystatechange = function () { // For old versions of IE
                 if (this.readyState == 'complete' || this.readyState == 'loaded') {
@@ -76,7 +63,7 @@
         var script_zlib = document.createElement('script');
         script_zlib.setAttribute("type","text/javascript");
         script_zlib.setAttribute("src",
-            "https://dv.sbgrid.org/javax.faces.resource/js/pv/gunzip.min.js.xhtml?version=4.4");
+            "resources/js/pv/gunzip.min.js");
         if (script_zlib.readyState) {
             script_zlib.onreadystatechange = function () { // For old versions of IE
                 if (this.readyState == 'complete' || this.readyState == 'loaded') {
@@ -90,25 +77,6 @@
         }
         current_script.parentNode.insertBefore(script_zlib, current_script.nextSibling);
     }
-    
-//    function loadViewerScript() {
-//        var script_viewer = document.createElement('script');
-//        script_viewer.setAttribute("type","text/javascript");
-//        script_viewer.setAttribute("src",
-//            "https://rawgit.com/rpartridge/dataverse/develop/src/main/webapp/resources/js/pv/load.js");
-//        if (script_viewer.readyState) {
-//        	script_viewer.onreadystatechange = function () { // For old versions of IE
-//                if (this.readyState == 'complete' || this.readyState == 'loaded') {
-//                	console.log("main called in if");
-//                    main();
-//                }
-//            };
-//        } else {
-//        	console.log("main called in else");
-//        	script_viewer.onload = main;
-//        }
-//        current_script.parentNode.insertBefore(script_viewer, current_script.nextSibling);
-//    }
 
     function preset() {
         proteinViewer.clear();
@@ -158,7 +126,7 @@
     function main() {
         console.log("main is running");
         var options = {
-                width: 600,
+                width: 750,
                 height: 500,
                 antialias: true,
                 quality : 'medium'

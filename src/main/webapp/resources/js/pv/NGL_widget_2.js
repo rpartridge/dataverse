@@ -21,7 +21,7 @@
         var script_ngl = document.createElement('script');
         script_ngl.setAttribute("type","text/javascript");
         script_ngl.setAttribute("src",
-            "http://arose.github.io/ngl/js/ngl.js");
+            "/resources/js/pv/ngl.js");
         if (script_ngl.readyState) {
             script_ngl.onreadystatechange = function () { // For old versions of IE
                 if (this.readyState == 'complete' || this.readyState == 'loaded') {
@@ -44,9 +44,7 @@
  		}
 		pdb = pdb.toLowerCase();
         var folder = pdb.charAt(1).concat(pdb.charAt(2));
-        var url = 'pdb/' + folder + '/pdb' + pdb + '.ent.gz';
-		//url = "rcsb://" + pdb;
-		
+        var url = 'pdb/' + folder + '/pdb' + pdb + '.ent.gz';		
         
         // load NGL viewer with specified URL
 		stage = new NGL.Stage( "viewport", { backgroundColor: "white" } );
