@@ -1,6 +1,18 @@
 (function() {
 
     // css    
+    var css_bootstrap = document.createElement('link');
+    css_bootstrap.setAttribute("type","text/css");
+    css_bootstrap.setAttribute("rel","stylesheet");
+    css_bootstrap.setAttribute("href","https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css");
+    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(css_bootstrap);
+
+    var css_font_awesome = document.createElement('link');
+    css_font_awesome.setAttribute("type","text/css");
+    css_font_awesome.setAttribute("rel","stylesheet");
+    css_font_awesome.setAttribute("href","https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
+    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(css_font_awesome);
+    
     var css_style = document.createElement('link');
     css_style.setAttribute("type","text/css");
     css_style.setAttribute("rel","stylesheet");
@@ -18,7 +30,7 @@
     var list = document.createElement('div');
     list.setAttribute("class","col-md-10 visualize");
     list.innerHTML = '<div id="inspector"> \
-    	<h2>Choose Style:</h2>	<ul>\
+        <h2>Choose Style:</h2>  <ul>\
           <li id="preset">Preset</li>\
           <li id="cartoon">Cartoon</li>\
           <li id="tube">Tube</li>\
@@ -27,12 +39,12 @@
           <li id="sline">Smooth Line Trace</li>\
           <li id="trace">Trace</li>\
         </ul>\
-    	</div>';
+        </div>';
     current_script.parentNode.insertBefore(list, current_script.nextSibling);
 
     var proteinViewer;
     if (window.proteinViewer === undefined) {
-    	console.log("zlib called");
+        console.log("zlib called");
         loadZlib();
     } else {
         proteinViewer = window.proteinViewer;
@@ -48,12 +60,12 @@
         if (script_tag.readyState) {
             script_tag.onreadystatechange = function () { // For old versions of IE
                 if (this.readyState == 'complete' || this.readyState == 'loaded') {
-                	console.log("main called in if");
+                    console.log("main called in if");
                     main();
                 }
             };
         } else {
-        	console.log("main called in else");
+            console.log("main called in else");
             script_tag.onload = main;
         }
         current_script.parentNode.insertBefore(script_tag, current_script.nextSibling);
@@ -67,12 +79,12 @@
         if (script_zlib.readyState) {
             script_zlib.onreadystatechange = function () { // For old versions of IE
                 if (this.readyState == 'complete' || this.readyState == 'loaded') {
-                	console.log("PV called in if");
+                    console.log("PV called in if");
                     loadPv();
                 }
             };
         } else {
-        	console.log("PV called in else");
+            console.log("PV called in else");
             script_zlib.onload = loadPv();
         }
         current_script.parentNode.insertBefore(script_zlib, current_script.nextSibling);
@@ -98,28 +110,28 @@
         });
     }
     function lines() {
-    	proteinViewer.clear();
-    	proteinViewer.lines('structure', structure);
+        proteinViewer.clear();
+        proteinViewer.lines('structure', structure);
     }
     function cartoon() {
-    	proteinViewer.clear();
-    	proteinViewer.cartoon('structure', structure, { color: color.ssSuccession() });
+        proteinViewer.clear();
+        proteinViewer.cartoon('structure', structure, { color: color.ssSuccession() });
     }
     function lineTrace() {
-    	proteinViewer.clear();
-    	proteinViewer.lineTrace('structure', structure);
+        proteinViewer.clear();
+        proteinViewer.lineTrace('structure', structure);
     }
     function sline() {
         proteinViewer.clear();
         proteinViewer.sline('structure', structure);
     }
     function tube() {
-    	proteinViewer.clear();
-    	proteinViewer.tube('structure', structure);
+        proteinViewer.clear();
+        proteinViewer.tube('structure', structure);
     }
     function trace() {
-    	proteinViewer.clear();
-    	proteinViewer.trace('structure', structure);
+        proteinViewer.clear();
+        proteinViewer.trace('structure', structure);
     }
     
     
@@ -133,12 +145,8 @@
         };
         proteinViewer = pv.Viewer(document.getElementById('viewer'), options);
             
-        if(document.getElementById('data-pdb') != null) {
-    		var pdb = window.frameElement.getAttribute('data-pdb');
-    	} 
-     	else {
-     		var pdb = "5DDK";
-     	}
+        var pdb = window.frameElement.getAttribute('data-pdb');
+
         load(pdb);
         document.getElementById('cartoon').onclick = cartoon;
         document.getElementById('line-trace').onclick = lineTrace;

@@ -16,130 +16,36 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="#{resource['js/pv/visStyleSheet.css']}?version=#{systemConfig.getVersion()}"/>
-	
-	
-	
-  <!--
-		<style>
-		
- 			.visualize {
-				position: absolute;
-			} 
-										
-			#gl {
-				position:fixed;
-				bottom:0px;
-				top:0px;
-				left:0px;
-				right:0px;
-			}
- 			#inspector {
-				top:10px;
-				left:10px;
-				box-shadow: 2px 2px 5px #888888;
-				border-radius:8px;
-				position:absolute;
-				background-color:#fafafa;
-				padding:15px;
-				border-style:solid;
-				border-width:1px;
-				border-color:#ccc;
-			}
-										
-			#inspector ul {
-				padding:0px;
-			}
-										
-			#inspector ul li {
-				margin-left:5px;
-				margin-right:5px;
-				margin-bottom:5px;
-				list-style:none;
-				cursor: pointer;
-				color:#337ab7
-			}
-										
-			#inspector ul li:hover {
-				color:#994444;
-			}
-										
-			#inspector hr {
-				margin-top: 3px;
-				margin-bottom: 10px;
-			}
-										
-			#inspector h1 {
-				font-size:16pt;
-				margin: 0px;
-				padding: 0px;
-			}
-										
-			#inspector h2 {
-				font-size:14pt;
-				font-weight: normal;
-				margin-top: 5px;
-				color: #616161;
-			} 
-								
-		</style>
-		  -->
 
     <br></br>
-<!-- 
-    <div class="panel-group">
-    	<div class="panel panel-default">
-			<div class="container">
-			  <div class="row">
-			    <div class="col-md-10 visualize">
-			    -->
-			      <div id="gl"></div>  
+	<div id="gl"></div>  
 			       
-			      <div id="inspector">        
+	<div id="inspector">        
 			      
-			        <h2>Choose Style:</h2>
+	<h2>Choose Style:</h2>
 			          
-			        <ul>
-			          <li id="preset">Preset</li>
-			          <li id="cartoon">Cartoon</li>
-			          <li id="tube">Tube</li>
-			          <li id="lines">Lines</li>
-			          <li id="line-trace">Line Trace</li>
-			          <li id="sline">Smooth Line Trace</li>
-			          <li id="trace">Trace</li>
-			        </ul>
+	<ul>
+		<li id="preset">Preset</li>
+		<li id="cartoon">Cartoon</li>
+		<li id="tube">Tube</li>
+		<li id="lines">Lines</li>
+		<li id="line-trace">Line Trace</li>
+		<li id="sline">Smooth Line Trace</li>
+		<li id="trace">Trace</li>
+	</ul>
 			        
-			        <div id="status">initializing...</div>
-			        <hr></hr>
+	<div id="status">initializing...</div>
+	<hr></hr>
 			      
-			      </div> 
-			     <!--    
-			    </div>  
-			  </div>
-			</div>	
- 
-		</div>
-	</div>
-		--> 
+	</div> 
+			       
 		
 	<script type="text/javascript" src="#{resource['js/pv/bio-pv.min.js']}?version=#{systemConfig.getVersion()}"></script>
   	<script type="text/javascript" src="#{resource['js/pv/formset.js']}?version=#{systemConfig.getVersion()}"></script>
-  	<script type="text/javascript" src="#{resource['js/pv/gunzip.min.js']}?version=#{systemConfig.getVersion()}"></script>
-  	 <!--  
-  	<script type="text/javascript" src="#{resource['js/pv/load.js']}?version=#{systemConfig.getVersion()}"></script>
-  	 -->
-	  
+  	<script type="text/javascript" src="#{resource['js/pv/gunzip.min.js']}?version=#{systemConfig.getVersion()}"></script>	  
 		 
 	<script type="text/javascript">
-		// added if/else for local testing so there is always a PDB available
-		if(document.getElementById('data-pdb') != null) {
-			var pdbid = window.frameElement.getAttribute('data-pdb');
-		} 
- 		else {
- 			var pdbid = "5ddk";
- 		}
-		
-		// usually just use this
- 		//var pdbid = window.frameElement.getAttribute('data-pdb');
+		var pdbid = window.frameElement.getAttribute('data-pdb');
 		
 		var folder = pdbid.charAt(1).concat(pdbid.charAt(2));
 		var url = 'pdb/' + folder + '/pdb' + pdbid + '.ent.gz';

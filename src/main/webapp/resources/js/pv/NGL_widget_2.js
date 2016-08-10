@@ -36,12 +36,8 @@
 	
 	function main() {
 		
-		if(document.getElementById('data-pdb') != null) {
-			var pdb = window.frameElement.getAttribute('data-pdb');
-		} 
- 		else {
- 			var pdb = "5ddk";
- 		}
+		var pdb = window.frameElement.getAttribute('data-pdb');
+
 		pdb = pdb.toLowerCase();
         var folder = pdb.charAt(1).concat(pdb.charAt(2));
         var url = 'pdb/' + folder + '/pdb' + pdb + '.ent.gz';		
