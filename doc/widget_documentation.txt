@@ -14,6 +14,9 @@ It also requires the style sheet visStyleSheet.css to format the menu of viewing
 Include the pv widget in the HTML Dataset page with a tag such as:
 <script id="pv-widget" src="#{resource['js/pv/widget_script.js']}?version=#{systemConfig.getVersion()}" type="text/javascript”>, adding additional parameters as needed.
 
+Errors:
+PV viewer currently only works as a standalone web page. It has some errors when included in the Dataverse visualization tab — i.e., it only displays about half the time when you refresh the page. However, this may be a local issue that is resolved when tested on other machines.
+
 
 
 2. NGL Viewer: NGL_widget_2.js
